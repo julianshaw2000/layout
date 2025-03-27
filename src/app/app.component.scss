@@ -1,0 +1,90 @@
+// Define a variable for the sidenav width
+$sidenav-width: 150px;
+
+.sidenav-container {
+  height: 100vh;
+  display: flex;
+}
+
+
+mat-sidenav {
+  width: $sidenav-width; // Use the variable here
+}
+
+.sticky-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000; // Ensures the toolbar stays above other content
+
+  }
+
+  mat-toolbar {
+    background-color: #333;
+    color: white;
+  }
+
+.content {
+  padding: 20px;
+  overflow-y: auto;
+  width: 100vw;
+  // width: calc(100vw - #{$sidenav-width}); // Use the variable here
+  height: calc(100vh - 64px); // Adjust 64px to your toolbar's height
+}
+
+mat-nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  height: 98vh;
+  background-color: lightsteelblue;
+  opacity: 0.9; // Set opacity to 0.5
+}
+mat-nav-list a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 10px 20px;
+  display: block;
+  transition: background-color 0.3s, color 0.3s;
+  // flex: start;
+}
+
+mat-nav-list a:hover {
+  background-color: gray;
+  color: #fff;
+  border-radius: 4px;
+}
+
+mat-nav-list a  span {
+   display: inline-block;
+   padding: 0 0 0 8px;
+   margin: 0  ;
+  //  flex-direction: row  ;
+  //  gap: 0px;
+}
+
+
+.sidenav-list {
+  background-color: lightgray;
+}
+
+::ng-deep .mat-sidenav-content {
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE/Edge
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome/Safari
+  }
+}
+
+// Media query to adjust content width when sidenav is toggled (closed)
+// @media (max-width: 768px) {
+//   mat-sidenav {
+//     width: 0; // Collapse sidenav
+//   }
+
+//   .content {
+//     width: 100vw; // Full width when sidenav is closed
+//   }
+// }
