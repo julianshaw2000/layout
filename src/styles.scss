@@ -1,12 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Global Reset
 html,
 body {
   margin: 0;
-  height: 100%;
+  padding: 0; // Ensure no padding interferes with layout
+  height: 100%; // Full height of the viewport
+  width: 100%; // Full width of the viewport
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  overflow: hidden  ;
+  overflow: hidden; // Prevent scrolling at the html/body level
+  box-sizing: border-box; // Include padding and borders in width/height calculations
 }
 
-html{
-  scrollbar-gutter: stable;
+// Apply box-sizing globally
+*,
+*::before,
+*::after {
+  box-sizing: inherit; // Ensures all elements use border-box sizing
+}
+
+// Optional: Prevent layout shifts caused by scrollbars
+html {
+  scrollbar-gutter: stable; // Keeps space for scrollbars even when they're not visible
+}
+
+// Optional: Style scrollbars for better UX
+::-webkit-scrollbar {
+  width: 8px; // Width of the scrollbar
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2); // Semi-transparent thumb
+  border-radius: 4px; // Rounded corners
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4); // Darker thumb on hover
 }

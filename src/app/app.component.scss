@@ -1,45 +1,51 @@
-// Define a variable for the sidenav width
-$sidenav-width: 150px;
+$sidenav-width: 150px; // Use desired consistent value
 
 .sidenav-container {
   height: 100vh;
+  width: 100vw;
   display: flex;
 }
 
-
 mat-sidenav {
-  width: $sidenav-width; // Use the variable here
+  width: $sidenav-width;
 }
 
 .sticky-toolbar {
   position: sticky;
   top: 0;
-  z-index: 1000; // Ensures the toolbar stays above other content
+  z-index: 1000;
+}
 
-  }
-
-  mat-toolbar {
-    background-color: #333;
-    color: white;
-  }
+mat-toolbar {
+  background-color: #333;
+  color: white;
+}
 
 .content {
   padding: 20px;
   overflow-y: auto;
+  height: calc(100vh - 64px);
+}
+
+.content.sidenav-open {
+  width: calc(100vw - #{$sidenav-width});
+  margin-left: $sidenav-width;
+}
+
+.content.sidenav-closed {
   width: 100vw;
-  // width: calc(100vw - #{$sidenav-width}); // Use the variable here
-  height: calc(100vh - 64px); // Adjust 64px to your toolbar's height
+  margin-left: 0;
 }
 
 mat-nav-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: center;
   height: 98vh;
   background-color: lightsteelblue;
-  opacity: 0.9; // Set opacity to 0.5
+  opacity: 0.9;
 }
+
 mat-nav-list a {
   text-decoration: none;
   color: #333;
@@ -47,7 +53,6 @@ mat-nav-list a {
   padding: 10px 20px;
   display: block;
   transition: background-color 0.3s, color 0.3s;
-  // flex: start;
 }
 
 mat-nav-list a:hover {
@@ -56,35 +61,48 @@ mat-nav-list a:hover {
   border-radius: 4px;
 }
 
-mat-nav-list a  span {
-   display: inline-block;
-   padding: 0 0 0 8px;
-   margin: 0  ;
-  //  flex-direction: row  ;
-  //  gap: 0px;
+mat-nav-list a span {
+  display: inline-block;
+  padding: 0 0 0 8px;
 }
-
 
 .sidenav-list {
   background-color: lightgray;
 }
 
-::ng-deep .mat-sidenav-content {
-  scrollbar-width: none; // Firefox
-  -ms-overflow-style: none; // IE/Edge
-
-  &::-webkit-scrollbar {
-    display: none; // Chrome/Safari
-  }
+.top-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  width: 100vw;
 }
 
-// Media query to adjust content width when sidenav is toggled (closed)
-// @media (max-width: 768px) {
-//   mat-sidenav {
-//     width: 0; // Collapse sidenav
-//   }
+.left-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
 
-//   .content {
-//     width: 100vw; // Full width when sidenav is closed
-//   }
-// }
+.spacer {
+  flex: 1 1 auto;
+}
+
+.right-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+/* global styles.scss file */
+html,
+body {
+  overflow-y: auto;
+  /* allow vertical scrolling */
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,63 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav -->
+  <mat-sidenav
+    #sidenav
+    [mode]="isMobileScreen ? 'over' : 'side'"
+    [opened]="!isMobileScreen"
+  >
+    <mat-nav-list>
+      <a
+        mat-list-item
+        routerLink="/home"
+        (click)="isMobileScreen && sidenav.close()"
+        *ngIf="!isMobileScreen || isMobileScreen"
+      >
+        <mat-icon mat-list-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+
+      @for (menu of menuList; track $index) {
+      <a
+        mat-list-item
+        routerLink="{{ menu.link }}"
+        (click)="isMobileScreen && sidenav.close()"
+      >
+        <mat-icon mat-list-icon>{{ menu.icon }}</mat-icon>
+        <span>{{ menu.title }}</span>
+      </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <mat-toolbar class="sticky-toolbar">
+      <app-toolbar></app-toolbar>
+      <!--
+      <div class="top-container">
+        <div class="left-group">
+          <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span>Application Title</span>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="right-group">
+          <button mat-icon-button>
+            <mat-icon>notifications</mat-icon>
+            <span>Notifications</span>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>account_circle</mat-icon>
+            <span>Username</span>
+          </button>
+        </div>
+      </div> -->
+    </mat-toolbar>
+    <div class="content">
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

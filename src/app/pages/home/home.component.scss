@@ -1,0 +1,38 @@
+.button-container {
+  display: flex;
+  align-items: center;
+  /* Vertically align items in the center */
+  justify-content: space-between;
+  /* Space between the left and right groups */
+  height: 64px;
+  /* Optional: Set a fixed height for the container */
+  padding: 0 16px;
+  /* Add padding for spacing */
+}
+
+.left-group {
+  display: flex;
+  align-items: center;
+  /* Align items within the group vertically */
+  gap: 8px;
+  /* Add spacing between elements inside the group */
+  flex: 0 0 auto;
+  /* Left group won't grow or shrink */
+}
+
+.spacer {
+  flex: 1 1 auto;
+  /* Spacer grows and shrinks to fill available space */
+  min-width: 20px;
+  /* Minimum width to ensure it doesn't collapse completely */
+}
+
+.right-group {
+  display: flex;
+  align-items: center;
+  /* Align items within the group vertically */
+  gap: 8px;
+  /* Add spacing between elements inside the group */
+  flex: 0 0 auto;
+  /* Right group won't grow or shrink */
+}
