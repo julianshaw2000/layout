@@ -5,8 +5,10 @@ import { MatToolbarModule } from '@angular/material/toolbar'; // Toolbar compone
 import { MatIconModule } from '@angular/material/icon'; // Icons
 import { MatButtonModule } from '@angular/material/button'; // Buttons
 import { MatListModule } from '@angular/material/list'; // List items
+
 import { RouterModule, RouterOutlet } from '@angular/router'; // Routing
 import { CommonModule } from '@angular/common';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // Define the menuType type for menu items
 type menuType = {
@@ -24,6 +26,7 @@ type menuType = {
     MatIconModule, // Angular Material Icons
     MatButtonModule, // Angular Material Buttons
     MatListModule, // Angular Material List
+    MatTooltipModule,
     RouterModule, // Angular Router
     RouterOutlet, // Router Outlet for dynamic content
     CommonModule

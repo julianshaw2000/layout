@@ -1,4 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+:root {
+  @include mat.tooltip-overrides((container-color: orange,
+      supporting-text-color: black,
+    ));
+}
 
 // Global Reset
 html,
@@ -24,7 +31,7 @@ html {
   scrollbar-gutter: stable; // Keeps space for scrollbars even when they're not visible
 }
 
-// Optional: Style scrollbars for better UX
+// Style scrollbars for better UX
 ::-webkit-scrollbar {
   width: 8px; // Width of the scrollbar
 }

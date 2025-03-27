@@ -31,8 +31,6 @@
   </mat-sidenav>
 
   <!-- Main Content -->
-  <!-- <mat-sidenav-content [class.sidenav-open]="!isMobileScreen && sidenav.opened"> -->
-
   <mat-sidenav-content
     #content
     [ngClass]="{
@@ -42,8 +40,6 @@
   >
     <div class="app-container">
       <mat-toolbar class="sticky-toolbar">
-        <!-- <app-toolbar></app-toolbar> -->
-
         <div class="top-container">
           <div class="left-group">
             <button mat-icon-button (click)="sidenav.toggle()">
@@ -55,11 +51,11 @@
           <div class="spacer"></div>
 
           <div class="right-group">
-            <button mat-icon-button>
+            <button mat-icon-button matTooltip="Notifications">
               <mat-icon>notifications</mat-icon>
               <!-- <span>Notifications</span> -->
             </button>
-            <button mat-icon-button>
+            <button mat-icon-button matTooltip="Account">
               <mat-icon>account_circle</mat-icon>
               <!-- <span>Username</span> -->
             </button>
